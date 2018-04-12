@@ -1,6 +1,6 @@
 Release Notes
 -------------
 
-**1.0.0 (unreleased)**
+**1.0.0 (2018-04-12)**
 
 * Initial release
