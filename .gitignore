@@ -1,0 +1,5 @@
+.eggs
+.pytest_cache
+.tox
+*.egg-info
+Pipfile.lock
