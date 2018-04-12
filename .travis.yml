@@ -20,6 +20,7 @@ jobs:
         provider: pypi
         user: davehunt
         password:
+          secure: "gB7OU2KFYX9pJdaXqbyIufgu1YzDoUssRFeP9lXoG7a8R8A0hFPm9aW/MceoqIIr83lnj21FJzHU/At3Raj2uQ3/x1zaOXPW7E63ppWeDhgSfoZDb7CcIIhVVxS3Kzcn1e6CY2MYsLA2oEKw/sNeE+yiCkWfK+7ULZqn9WUBf9KfZBRn3akgdZ4c+47+umlDyy2jJIE9wH3LdW1cNmA6vsEoXlQ57oIUw235tabdAZuz5nMsem11YK6ykxGGd4Bo269qYJabCXiaOGM+raj0qJqFX4BFZRGg/JJCpGuNSJdm/TuS2eWIIS62qQdteMrD8e8x7SpqizlpuPWRMuRuz61zHNsxcWkiuLYY+fH/QLFXWvBntv2ITRGFWWTO+ZgwEZO/FMBsFYeuhJC5NCZGDL44NVbvgPkio9XrTxkucgPkUNb/ReR+O0VZ74WmedUn8qlGmcoeAzr9UBvBt1YxfopZjcqrULzuDMKiOB8hdacftP5sEJAqJbOAmcONPhxxOQXHy/h+RYkR8VYA7aQ1La2hT3WqIGw3S999raDV06phdoHcFg1hnCcck4Htcd7hf6ahyAFLPg5PxQwZbNtK+O6G5ceUiYL2TcLLv3rSWr1t96NuB6RtfUetlR063Tm+ff3q+USVdoPM3XEWoQtIQyd6paZnGINn7mhPJfmgNu8="
         distributions: sdist bdist_wheel
         on:
           tags: true
