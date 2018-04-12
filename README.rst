@@ -86,6 +86,7 @@ Resources
 
 .. _pytest: http://www.python.org/
 .. _Firefox Accounts: https://developer.mozilla.org/en-US/docs/Mozilla/Tech/Firefox_Accounts
+.. _Selenium: https://www.seleniumhq.org/
 .. _Release Notes:  http://github.com/davehunt/pytest-fxa/blob/master/CHANGES.rst
 .. _Issue Tracker: http://github.com/davehunt/pytest-fxa/issues
 .. _Code: http://github.com/davehunt/pytest-fxa
