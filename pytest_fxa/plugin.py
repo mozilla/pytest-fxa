@@ -17,6 +17,16 @@ here = os.path.dirname(__file__)
 logging.getLogger(__name__).addHandler(logging.NullHandler())
 
 
+def pytest_addoption(parser):
+    group = parser.getgroup('fxa')
+    group.addoption(
+        '--fxa-email',
+        action='store',
+        dest='fxa_email',
+        help='Email used to create fxa account.'
+    )
+
+
 @pytest.fixture(scope='session')
 def fxa_client(fxa_urls):
     return Client(fxa_urls['authentication'])
@@ -28,9 +38,14 @@ def fxa_urls(pytestconfig):
 
 
 @pytest.fixture
-def fxa_account(fxa_client):
+def fxa_email(pytestconfig):
+    return pytestconfig.getoption('fxa_email') or os.getenv('FXA_EMAIL')
+
+
+@pytest.fixture
+def fxa_account(fxa_client, fxa_email):
     logger = logging.getLogger()
-    account = TestEmailAccount()
+    account = TestEmailAccount(email=fxa_email)
     password = ''.join([random.choice(string.ascii_letters) for i in range(8)])
     FxAccount = collections.namedtuple('FxAccount', 'email password')
     fxa_account = FxAccount(email=account.email, password=password)
