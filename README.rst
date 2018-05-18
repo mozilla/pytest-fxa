@@ -5,22 +5,22 @@ pytest-fxa is a plugin for pytest_ that provides test accounts for
 `Firefox Accounts`_.
 
 .. image:: https://img.shields.io/badge/license-MPL%202.0-blue.svg
-   :target: https://github.com/davehunt/pytest-fxa/blob/master/LICENSE
+   :target: https://github.com/mozilla/pytest-fxa/blob/master/LICENSE
    :alt: License
 .. image:: https://img.shields.io/pypi/v/pytest-fxa.svg
    :target: https://pypi.python.org/pypi/pytest-fxa/
    :alt: PyPI
-.. image:: https://img.shields.io/travis/davehunt/pytest-fxa.svg
-   :target: https://travis-ci.org/davehunt/pytest-fxa/
+.. image:: https://img.shields.io/travis/mozilla/pytest-fxa.svg
+   :target: https://travis-ci.org/mozilla/pytest-fxa/
    :alt: Travis
-.. image:: https://img.shields.io/github/issues-raw/davehunt/pytest-fxa.svg
-   :target: https://github.com/davehunt/pytest-fxa/issues
+.. image:: https://img.shields.io/github/issues-raw/mozilla/pytest-fxa.svg
+   :target: https://github.com/mozilla/pytest-fxa/issues
    :alt: Issues
-.. image:: https://pyup.io/repos/github/davehunt/pytest-fxa/shield.svg
-  :target: https://pyup.io/repos/github/davehunt/pytest-fxa
+.. image:: https://pyup.io/repos/github/mozilla/pytest-fxa/shield.svg
+  :target: https://pyup.io/repos/github/mozilla/pytest-fxa
   :alt: Updates
-.. image:: https://pyup.io/repos/github/davehunt/pytest-fxa/python-3-shield.svg
-  :target: https://pyup.io/repos/github/davehunt/pytest-fxa/
+.. image:: https://pyup.io/repos/github/mozilla/pytest-fxa/python-3-shield.svg
+  :target: https://pyup.io/repos/github/mozilla/pytest-fxa/
   :alt: Python 3
 
 Requirements
@@ -87,6 +87,6 @@ Resources
 .. _pytest: http://www.python.org/
 .. _Firefox Accounts: https://developer.mozilla.org/en-US/docs/Mozilla/Tech/Firefox_Accounts
 .. _Selenium: https://www.seleniumhq.org/
-.. _Release Notes:  http://github.com/davehunt/pytest-fxa/blob/master/CHANGES.rst
-.. _Issue Tracker: http://github.com/davehunt/pytest-fxa/issues
-.. _Code: http://github.com/davehunt/pytest-fxa
+.. _Release Notes:  http://github.com/mozilla/pytest-fxa/blob/master/CHANGES.rst
+.. _Issue Tracker: http://github.com/mozilla/pytest-fxa/issues
+.. _Code: http://github.com/mozilla/pytest-fxa
