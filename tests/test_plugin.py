@@ -68,3 +68,14 @@ def test_fxa_email_env_variable(testdir, monkeypatch, random_email):
     """.format(random_email))
     result = testdir.runpytest()
     result.assert_outcomes(passed=1)
+
+
+def test_no_email_given(testdir):
+    testdir.makepyfile("""
+        import pytest
+
+        def test_account(fxa_account):
+            assert 'pytest-' in fxa_account.email
+    """)
+    result = testdir.runpytest()
+    result.assert_outcomes(passed=1)
