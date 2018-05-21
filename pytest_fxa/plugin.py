@@ -39,7 +39,10 @@ def fxa_urls(pytestconfig):
 
 @pytest.fixture
 def fxa_email(pytestconfig):
-    return pytestconfig.getoption('fxa_email') or os.getenv('FXA_EMAIL')
+    email = pytestconfig.getoption('fxa_email') or os.getenv('FXA_EMAIL')
+    if email is None:
+        return 'pytest-{:0x}@restmail.net'.format(random.getrandbits(10 * 4))
+    return email
 
 
 @pytest.fixture
