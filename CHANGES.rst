@@ -1,6 +1,10 @@
 Release Notes
 -------------
 
+**1.2.0 (2018-06-15)**
+
+* Catch the exception in teardown when the account has already been destroyed.
+
 **1.1.0 (2018-05-21)**
 
 * Provide a ``fxa_email`` fixture for accessing the email address.

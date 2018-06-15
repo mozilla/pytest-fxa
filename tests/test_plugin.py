@@ -40,11 +40,22 @@ def test_no_digits_in_password(testdir):
 def test_destroyed(testdir):
     testdir.makepyfile("""
         def test_destroy(fxa_client, fxa_account):
+            for _ in range(2):
+                fxa_client.destroy_account(
+                    fxa_account.email, fxa_account.password)
+    """)
+    result = testdir.runpytest()
+    result.assert_outcomes(failed=1)
+    assert 'ClientError: Unknown account' in result.stdout.str()
+
+
+def test_cleanup_when_destroyed(testdir):
+    testdir.makepyfile("""
+        def test_destroy(fxa_client, fxa_account):
             fxa_client.destroy_account(fxa_account.email, fxa_account.password)
     """)
     result = testdir.runpytest()
-    result.assert_outcomes(error=1, passed=1)
-    assert 'ClientError: Unknown account' in result.stdout.str()
+    result.assert_outcomes(passed=1)
 
 
 def test_commandline_email_option(testdir, random_email):

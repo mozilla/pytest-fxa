@@ -11,6 +11,7 @@ import string
 import pytest
 from fxa.constants import ENVIRONMENT_URLS
 from fxa.core import Client
+from fxa.errors import ClientError
 from fxa.tests.utils import TestEmailAccount
 
 here = os.path.dirname(__file__)
@@ -60,6 +61,12 @@ def fxa_account(fxa_client, fxa_email):
     session.verify_email_code(message['headers']['x-verify-code'])
     logger.info('Verified: {}'.format(fxa_account))
     yield fxa_account
-    account.clear()
-    fxa_client.destroy_account(fxa_account.email, fxa_account.password)
-    logger.info('Removed: {}'.format(fxa_account))
+    try:
+        account.clear()
+        fxa_client.destroy_account(fxa_account.email, fxa_account.password)
+        logger.info('Removed: {}'.format(fxa_account))
+    except ClientError as e:
+        # 'Unknown Account' error is ok - account already deleted
+        # https://github.com/mozilla/fxa-auth-server/blob/master/docs/api.md#response-format
+        if e.errno not in [102]:
+            raise
