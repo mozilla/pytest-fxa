@@ -1,3 +1,4 @@
+__pycache__
 .eggs
 .pytest_cache
 .tox
