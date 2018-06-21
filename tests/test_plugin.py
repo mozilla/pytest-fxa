@@ -90,3 +90,30 @@ def test_no_email_given(testdir):
     """)
     result = testdir.runpytest()
     result.assert_outcomes(passed=1)
+
+
+def test_fxa_env_env_variable(monkeypatch, testdir):
+    env = 'stable'
+    monkeypatch.setenv('FXA_ENV', env)
+    testdir.makepyfile("""
+        import pytest
+
+        def test_account(fxa_urls):
+            assert '{0}' in fxa_urls['authentication']
+    """.format(env))
+    result = testdir.runpytest()
+    result.assert_outcomes(passed=1)
+
+
+def test_parametrize_can_override_env(monkeypatch, testdir):
+    env, param = ['stable', 'stage']
+    monkeypatch.setenv('FXA_ENV', env)
+    testdir.makepyfile("""
+        import pytest
+
+        @pytest.mark.parametrize('fxa_urls', ['{0}'], indirect=True)
+        def test_account(fxa_urls):
+            assert '{0}' in fxa_urls['authentication']
+    """.format(param))
+    result = testdir.runpytest()
+    result.assert_outcomes(passed=1)

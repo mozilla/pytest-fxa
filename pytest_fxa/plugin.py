@@ -28,14 +28,15 @@ def pytest_addoption(parser):
     )
 
 
-@pytest.fixture(scope='session')
+@pytest.fixture
 def fxa_client(fxa_urls):
     return Client(fxa_urls['authentication'])
 
 
-@pytest.fixture(scope='session')
-def fxa_urls(pytestconfig):
-    return ENVIRONMENT_URLS[os.getenv('FXA_ENV', 'stage')]
+@pytest.fixture
+def fxa_urls(request):
+    env = getattr(request, 'param', os.getenv('FXA_ENV', 'stage'))
+    return ENVIRONMENT_URLS[env]
 
 
 @pytest.fixture
