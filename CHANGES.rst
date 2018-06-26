@@ -1,6 +1,10 @@
 Release Notes
 -------------
 
+**1.3.0 (2018-06-26)**
+
+* Allow environment(s) to be specified using a custom ``fxa_env`` marker.
+
 **1.2.0 (2018-06-15)**
 
 * Catch the exception in teardown when the account has already been destroyed.
