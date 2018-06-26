@@ -117,3 +117,26 @@ def test_fxa_env_marker(monkeypatch, testdir):
     """.format(marker))
     result = testdir.runpytest()
     result.assert_outcomes(passed=1)
+
+
+def test_fxa_env_marker_multi(monkeypatch, testdir):
+    testdir.makepyfile("""
+        import pytest
+
+        @pytest.mark.fxa_env('stable', 'stage')
+        def test_account(fxa_urls): pass
+    """)
+    result = testdir.runpytest()
+    result.assert_outcomes(passed=2)
+
+
+def test_fxa_env_marker_empty(monkeypatch, testdir):
+    testdir.makepyfile("""
+        import pytest
+
+        @pytest.mark.fxa_env()
+        def test_account(fxa_urls):
+            assert 'stage' in fxa_urls['authentication']
+    """)
+    result = testdir.runpytest()
+    result.assert_outcomes(passed=1)
