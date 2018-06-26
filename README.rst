@@ -64,11 +64,11 @@ Specifying an environment
 By default all accounts will be created on the 'stage' environment. You can set
 the ``FXA_ENV`` environment variable to target 'production' or 'stable'.
 
-If you need to override the environment for a subset of tests, or run tests against multiple environments, you can do this using parameterisation:
+If you need to override the environment for a subset of tests, or run tests against multiple environments, you can use the ``fxa_env`` marker:
 
 .. code-block:: python
 
-  @pytest.mark.parametrize('fxa_urls', ['production'], indirect=True)
+  @pytest.mark.fxa_env('production')
   def test_production(fxa_account):
       selenium.get('https://example.com/')
       selenium.find_element(By.ID, 'email').send_keys(fxa_account.email)
@@ -76,7 +76,7 @@ If you need to override the environment for a subset of tests, or run tests agai
       selenium.find_element(By.ID, 'login').click()
 
 
-  @pytest.mark.parametrize('fxa_urls', ['stage'], indirect=True)
+  @pytest.mark.fxa_env('stage', 'stable')
   def test_stage(fxa_account):
       selenium.get('https://elpmaxe.com/')
       selenium.find_element(By.ID, 'email').send_keys(fxa_account.email)

@@ -28,6 +28,26 @@ def pytest_addoption(parser):
     )
 
 
+def pytest_configure(config):
+    config.addinivalue_line(
+        'markers',
+        'fxa_env(name,): mark tests to run against named Firefox Accounts '
+        'environment(s): ' + ', '.join(ENVIRONMENT_URLS.keys()))
+
+
+def pytest_generate_tests(metafunc):
+    if 'fxa_urls' not in metafunc.fixturenames:
+        return
+
+    envs = set([
+        env_name
+        for marker in metafunc.definition.iter_markers('fxa_env')
+        for env_name in marker.args])
+
+    if envs:
+        metafunc.parametrize('fxa_urls', envs, indirect=True)
+
+
 @pytest.fixture
 def fxa_client(fxa_urls):
     return Client(fxa_urls['authentication'])

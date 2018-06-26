@@ -105,15 +105,15 @@ def test_fxa_env_env_variable(monkeypatch, testdir):
     result.assert_outcomes(passed=1)
 
 
-def test_parametrize_can_override_env(monkeypatch, testdir):
-    env, param = ['stable', 'stage']
+def test_fxa_env_marker(monkeypatch, testdir):
+    env, marker = ['stable', 'stage']
     monkeypatch.setenv('FXA_ENV', env)
     testdir.makepyfile("""
         import pytest
 
-        @pytest.mark.parametrize('fxa_urls', ['{0}'], indirect=True)
+        @pytest.mark.fxa_env('{0}')
         def test_account(fxa_urls):
             assert '{0}' in fxa_urls['authentication']
-    """.format(param))
+    """.format(marker))
     result = testdir.runpytest()
     result.assert_outcomes(passed=1)
