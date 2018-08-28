@@ -1,6 +1,10 @@
 Release Notes
 -------------
 
+**1.4.0 (2018-08-28)**
+
+* Match session when verifying account and cleanup when verification fails.
+
 **1.3.0 (2018-06-26)**
 
 * Allow environment(s) to be specified using a custom ``fxa_env`` marker.
