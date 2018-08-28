@@ -6,6 +6,9 @@ import random
 import string
 
 import pytest
+from fxa.core import Session
+
+from pytest_fxa import plugin
 
 
 @pytest.fixture
@@ -140,3 +143,19 @@ def test_fxa_env_marker_empty(monkeypatch, testdir):
     """)
     result = testdir.runpytest()
     result.assert_outcomes(passed=1)
+
+
+def test_cleanup_after_failed_verification(mocker, testdir):
+    mock = mocker.Mock(side_effect=Exception)
+    mocker.patch.object(Session, 'verify_email_code', mock)
+    mocker.spy(plugin, 'fxa_cleanup')
+
+    testdir.makepyfile("""
+        import pytest
+
+        def test_login(fxa_account, fxa_client):
+            assert fxa_client.login(fxa_account.email, fxa_account.password)
+    """)
+    result = testdir.runpytest()
+    result.assert_outcomes(error=1)
+    assert plugin.fxa_cleanup.call_count == 1
