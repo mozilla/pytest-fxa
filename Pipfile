@@ -1,18 +1,13 @@
 [[source]]
-
 url = "https://pypi.org/simple"
 verify_ssl = true
 name = "pypi"
 
-
 [packages]
-
 pyfxa = "==0.6.0"
 
-
 [dev-packages]
-
 flake8 = "==3.5.0"
 flake8-isort = "==2.5"
-pytest = "==3.6.2"
-pytest-mock = "*"
+pytest = "==3.7.3"
+pytest-mock = "==1.10.0"

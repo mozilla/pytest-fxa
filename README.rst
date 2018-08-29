@@ -28,7 +28,7 @@ Requirements
 
 You will need the following prerequisites in order to use pytest-fxa:
 
-- Python 2.7, 3.6, PyPy, or PyPy3
+- Python 2.7, 3.6, 3.7, PyPy, or PyPy3
 
 Installation
 ------------
