@@ -18,12 +18,6 @@ pytest-fxa is a plugin for pytest_ that provides test accounts for
 .. image:: https://img.shields.io/github/issues-raw/mozilla/pytest-fxa.svg
    :target: https://github.com/mozilla/pytest-fxa/issues
    :alt: Issues
-.. image:: https://pyup.io/repos/github/mozilla/pytest-fxa/shield.svg
-  :target: https://pyup.io/repos/github/mozilla/pytest-fxa
-  :alt: Updates
-.. image:: https://pyup.io/repos/github/mozilla/pytest-fxa/python-3-shield.svg
-  :target: https://pyup.io/repos/github/mozilla/pytest-fxa/
-  :alt: Python 3
 
 Requirements
 ------------
