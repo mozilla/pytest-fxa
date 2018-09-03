@@ -18,6 +18,9 @@ pytest-fxa is a plugin for pytest_ that provides test accounts for
 .. image:: https://img.shields.io/github/issues-raw/mozilla/pytest-fxa.svg
    :target: https://github.com/mozilla/pytest-fxa/issues
    :alt: Issues
+.. image:: https://api.dependabot.com/badges/status?host=github&repo=mozilla/pytest-fxa
+   :target: https://dependabot.com
+   :alt: Dependabot
 
 Requirements
 ------------
