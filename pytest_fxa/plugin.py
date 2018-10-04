@@ -94,7 +94,6 @@ def fxa_account(fxa_client, fxa_email):
     try:
         session = fxa_client.create_account(fxa_account.email, fxa_account.password)
         logger.info("Created: {}".format(fxa_account))
-        account.fetch()
         message = account.wait_for_email(
             lambda m: "x-verify-code" in m["headers"]
             and session.uid == m["headers"]["x-uid"]

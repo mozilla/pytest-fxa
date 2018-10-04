@@ -3,7 +3,6 @@
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
 import random
-import string
 
 import pytest
 from fxa.core import Session
@@ -13,10 +12,7 @@ from pytest_fxa import plugin
 
 @pytest.fixture
 def random_email():
-    test_string = "".join(
-        random.choice(string.ascii_letters + string.digits) for _ in range(8)
-    )
-    return "{}@restmail.net".format(test_string)
+    return "pytester-{:0x}@restmail.net".format(random.getrandbits(10 * 4))
 
 
 def test_login(testdir):
