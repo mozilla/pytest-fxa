@@ -30,7 +30,7 @@ def test_login(testdir):
 
 def test_no_digits_in_password(testdir):
     testdir.makepyfile(
-        """
+        r"""
         import re
 
         def test_login(fxa_account):
