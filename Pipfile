@@ -9,5 +9,5 @@ pyfxa = "==0.6.0"
 [dev-packages]
 flake8 = "==3.7.7"
 flake8-isort = "==2.6.0"
-pytest = "==4.3.0"
+pytest = "==4.2.1"
 pytest-mock = "==1.10.1"
