@@ -4,7 +4,7 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-pyfxa = "==0.6.0"
+pyfxa = "==0.7.1"
 
 [dev-packages]
 flake8 = "==3.7.7"
